@@ -1,7 +1,7 @@
 import { Preloader } from '@ui';
 import { FeedUI } from '@ui-pages';
 import { FC, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/store';
 import { useDispatch } from '../../services/store';
 import { fetchFeeds } from '../../services/slices/feedSlice';
 import { selectFeedOrders, selectFeedLoading } from '../../services/selectors';

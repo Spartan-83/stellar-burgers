@@ -19,10 +19,7 @@ const initialState: FeedState = {
 };
 
 // Получение ленты заказов
-export const fetchFeeds = createAsyncThunk('feed/fetchFeeds', async () => {
-  const data = await getFeedsApi();
-  return data;
-});
+export const fetchFeeds = createAsyncThunk('feed/fetchFeeds', getFeedsApi);
 
 const feedSlice = createSlice({
   name: 'feed',

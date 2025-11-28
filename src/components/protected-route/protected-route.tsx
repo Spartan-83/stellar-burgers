@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/store';
 import { FC, ReactElement } from 'react';
 import {
   selectIsAuthenticated,
@@ -21,18 +21,7 @@ export const ProtectedRoute: FC<ProtectedRouteProps> = ({
   const isAuthChecked = useSelector(selectIsAuthChecked);
 
   if (!isAuthChecked) {
-    return (
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh'
-        }}
-      >
-        <Preloader />
-      </div>
-    );
+    return <Preloader />;
   }
 
   if (onlyUnAuth && isAuthenticated) {

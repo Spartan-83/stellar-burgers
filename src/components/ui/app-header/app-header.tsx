@@ -14,23 +14,45 @@ export const AppHeaderUI: FC<TAppHeaderUIProps> = ({ userName }) => (
     <nav className={`${styles.menu} p-4`}>
       <div className={styles.menu_part_left}>
         <NavLink to='/' className={styles.link}>
-          <BurgerIcon type={'primary'} className={styles.link} />
-          <p className='text text_type_main-default ml-2 mr-10'>Конструктор</p>
+          {({ isActive }) => (
+            <>
+              <BurgerIcon type={isActive ? 'primary' : 'secondary'} />
+              <p
+                className={`text text_type_main-default ml-2 mr-10 ${isActive ? styles.link_active : ''}`}
+              >
+                Конструктор
+              </p>
+            </>
+          )}
         </NavLink>
         <NavLink to='/feed' className={styles.link}>
-          <ListIcon type={'secondary'} />
-          <p className='text text_type_main-default ml-2'>Лента заказов</p>
+          {({ isActive }) => (
+            <>
+              <ListIcon type={isActive ? 'primary' : 'secondary'} />
+              <p
+                className={`text text_type_main-default ml-2 ${isActive ? styles.link_active : ''}`}
+              >
+                Лента заказов
+              </p>
+            </>
+          )}
         </NavLink>
       </div>
-      <div className={styles.logo}>
+      <NavLink to='/' className={styles.logo}>
         <Logo className='' />
-      </div>
+      </NavLink>
       <div className={styles.link_position_last}>
         <NavLink to='/profile' className={styles.link}>
-          <ProfileIcon type={'secondary'} />
-          <p className='text text_type_main-default ml-2'>
-            {userName || 'Личный кабинет'}
-          </p>
+          {({ isActive }) => (
+            <>
+              <ProfileIcon type={isActive ? 'primary' : 'secondary'} />
+              <p
+                className={`text text_type_main-default ml-2 ${isActive ? styles.link_active : ''}`}
+              >
+                {userName || 'Личный кабинет'}
+              </p>
+            </>
+          )}
         </NavLink>
       </div>
     </nav>

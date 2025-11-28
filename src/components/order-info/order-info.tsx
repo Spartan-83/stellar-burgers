@@ -1,6 +1,6 @@
 import { FC, useMemo, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/store';
 import { useDispatch } from '../../services/store';
 import { fetchOrderByNumber } from '../../services/slices/orderSlice';
 import {
