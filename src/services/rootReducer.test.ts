@@ -40,4 +40,40 @@ describe('rootReducer', () => {
       error: null,
     });
   });
+  it('should return initial state for undefined state and unknown action', () => {
+    const state = rootReducer(undefined, { type: 'UNKNOWN_ACTION' });
+    expect(state).toEqual({
+      ingredients: {
+        ingredients: [],
+      loading: false,
+      error: null
+      },
+      burgerConstructor: {
+        bun: null,
+        ingredients: []
+      },
+      order: {
+        orders: [],
+        currentOrder: null,
+        orderRequest: false,
+        orderModalData: null,
+        loading: false,
+        error: null
+      },
+      feed: {
+        orders: [],
+        total: 0,
+        totalToday: 0,
+        loading: false,
+        error: null
+      },
+      user: {
+        user: null,
+        isAuthenticated: false,
+        isAuthChecked: false,
+        loading: false,
+        error: null
+      }
+    });
+  });
 });
